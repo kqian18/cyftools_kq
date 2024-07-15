@@ -786,7 +786,7 @@ void CellTable::AddColumn(const Tag& tag,
 }
 
 void CellTable::AddLabel(const Tag& tag, const std::string& value) {
-    if (value->size() != CellCount()) {
+    if (value.size() != CellCount()) {
         throw std::runtime_error("Adding column of incorrect size");
     }
 
