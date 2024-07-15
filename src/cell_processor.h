@@ -633,7 +633,7 @@ class ROIProcessor : public CellProcessor {
   void SetParams(bool label,
 		 const std::vector<Polygon>& rois,
 		 bool bl) {
-    m_label = label;
+    m_label;
     m_rois = rois;
     m_blacklist_remove = bl;
   }
