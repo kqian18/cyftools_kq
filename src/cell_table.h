@@ -240,6 +240,7 @@ public:
  private:
 
   std::unordered_map<string, FloatColPtr> m_table;
+  std::unordered_map<std::string, StringColPtr> string_table;
 
   FloatColPtr m_x_ptr;
   FloatColPtr m_y_ptr;
@@ -275,7 +276,7 @@ public:
 
   
   // selected write
-  std::unordered_set<int> m_cells_to_write;
+  std::_set<int> m_cells_to_write;
   
   // internal member functions
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
