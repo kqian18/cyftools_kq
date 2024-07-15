@@ -1069,8 +1069,9 @@ int ROIProcessor::ProcessLine(Cell& cell) {
 
   // Loop the table and check if the cell is in the ROI
   bool print_line = true; //m_blacklist_remove;
-  
-  StringPtr cell_label = std::make_shared<std::string>(); 
+
+  std::string = cell_label;
+  // StringPtr cell_label = std::make_shared<std::string>(); 
 
   // Loop through all polygons and check if the point is inside any of them
   for (const auto &polygon : m_rois) {
