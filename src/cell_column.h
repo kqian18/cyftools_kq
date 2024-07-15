@@ -778,6 +778,7 @@ using IDColPtr    = std::shared_ptr<IDCol>;
 //using GraphColPtr = std::shared_ptr<GraphColumn>;
 using IntColPtr   = std::shared_ptr<IntCol>;
 using FloatColPtr = std::shared_ptr<FloatCol>;
+using StringPtr = std::shared_ptr<std::string>;
 using StringColPtr= std::shared_ptr<StringColumn>;
 //using FlagColPtr  = std::shared_ptr<FlagColumn>;
 using ColPtr      = std::shared_ptr<Column>;
