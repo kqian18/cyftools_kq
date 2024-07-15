@@ -785,6 +785,23 @@ void CellTable::AddColumn(const Tag& tag,
   
 }
 
+void CellTable::AddColumn(const Tag& tag, StringColPtr value) {
+    if (value->size() != CellCount()) {
+        throw std::runtime_error("Adding column of incorrect size");
+    }
+
+    // Check if already exists in the table
+    if (m_table.find(tag.id) != m_table.end()) {
+        std::cerr << "Warning: Overwriting existing column " << tag.id << std::endl;
+    }
+
+    // Insert as a meta key
+    m_header.addTag(tag);
+
+    // Add to the table
+    m_table[tag.id] = value;
+}
+
 void CellTable::SubsetROI(const std::vector<Polygon> &polygons) {
 
   size_t nc = CellCount();
