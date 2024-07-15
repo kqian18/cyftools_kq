@@ -393,9 +393,6 @@ private:
     std::vector<std::string> m_vec;
 };
 
-using StringColPtr = std::shared_ptr<StringColumn>;
-
-#endif // STRING_COLUMN_H
 
 /*
 
