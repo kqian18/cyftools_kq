@@ -1149,10 +1149,7 @@ int ROIProcessor::ProcessLine(Cell& cell) {
     Tag roitag(Tag::CA_TAG, "roi","");
     AddColumn(roitag,cell_label);
           
-    //if (!labels.empty()) {
-       // labels += ","; // Add a comma before appending the next label
-                }
-        //labels += polygon.Text; // Append the label    
+    
         
   }
   
