@@ -646,7 +646,7 @@ class ROIProcessor : public CellProcessor {
 
   std::vector<Polygon> m_rois;
 
-  bool m_label;
+  bool m_label = false;
 
   bool m_blacklist_remove = false;
 
