@@ -1149,7 +1149,7 @@ int ROIProcessor::ProcessLine(Cell& cell) {
          
     }
     Tag roitag(Tag::CA_TAG, "roi","");
-    CellTable::AddLabel(roitag,cell_label);
+    AddLabel(roitag,cell_label);
           
     
         
