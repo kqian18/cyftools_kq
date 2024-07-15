@@ -1070,7 +1070,7 @@ int ROIProcessor::ProcessLine(Cell& cell) {
   // Loop the table and check if the cell is in the ROI
   bool print_line = true; //m_blacklist_remove;
   
-  // std::string labels; // if a cell has multiple labels 
+  std::string cell_label; 
 
   // Loop through all polygons and check if the point is inside any of them
   for (const auto &polygon : m_rois) {
@@ -1143,7 +1143,7 @@ int ROIProcessor::ProcessLine(Cell& cell) {
       // break;
             
       
-      cell.label = polygon.Text;
+      cell_label = polygon.Text;
          
     }
     Tag roitag(Tag::CA_TAG, "roi","");
