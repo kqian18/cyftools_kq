@@ -339,6 +339,64 @@ protected:
     std::optional<size_t> m_precision;
 };
 
+
+class StringColumn {
+public:
+    StringColumn() = default;
+
+    StringColumn(const std::string& initial_elem) {
+        m_vec.push_back(initial_elem);
+    }
+
+    std::string GetStringElem(size_t i) const {
+        if (i >= m_vec.size())
+            throw std::out_of_range("Index out of range");
+        return m_vec.at(i);
+    }
+
+    void SetValueAt(size_t index, const std::string& value) {
+        if (index >= m_vec.size()) {
+            throw std::out_of_range("Index out of bounds in SetValueAt");
+        }
+        m_vec[index] = value;
+    }
+
+    void PushElem(const std::string& elem) {
+        m_vec.emplace_back(elem);
+    }
+
+    size_t size() const {
+        return m_vec.size();
+    }
+
+    std::string toString() const {
+        std::stringstream ss;
+        ss << "StringColumn<string>: [";
+        for (size_t i = 0; i < std::min(size(), (size_t)3); i++) {
+            if (i > 0) ss << ", ";
+            ss << m_vec[i];
+        }
+        if (size() > 3) ss << ", ...";
+        ss << "]";
+        return ss.str();
+    }
+
+    void reserve(size_t n) {
+        m_vec.reserve(n);
+    }
+
+    void resize(size_t n) {
+        m_vec.resize(n);
+    }
+
+private:
+    std::vector<std::string> m_vec;
+};
+
+using StringColPtr = std::shared_ptr<StringColumn>;
+
+#endif // STRING_COLUMN_H
+
 /*
 
 class StringColumn : public Column {
