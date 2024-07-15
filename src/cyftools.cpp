@@ -2353,6 +2353,7 @@ static int roifunc(int argc, char** argv) {
     case 'r' : arg >> roifile; break;
     case 'm' : arg >> micron_per_pixel; break;
     case 'b' : blacklist = true; break;
+    case 'l' : label = true; break;
     default: die = true;
     }
   }
@@ -2396,7 +2397,7 @@ static int roifunc(int argc, char** argv) {
 
   ROIProcessor roip;
   roip.SetCommonParams(opt::outfile, cmd_input, opt::verbose);
-  roip.SetParams(false, rois, blacklist);// false is placeholder for label function, that i need to implement
+  roip.SetParams(label, rois, blacklist);
 
   if (table.StreamTable(roip, opt::infile))
     return 1; // non-zero status in StreamTable
