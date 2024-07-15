@@ -791,7 +791,7 @@ void CellTable::AddLabel(const Tag& tag, StringColPtr value) {
     }
 
     // Check if already exists in the table
-    if (m_table.find(tag.id) != m_table.end()) {
+    if (string_table.find(tag.id) != string_table.end()) {
         std::cerr << "Warning: Overwriting existing column " << tag.id << std::endl;
     }
 
@@ -799,7 +799,7 @@ void CellTable::AddLabel(const Tag& tag, StringColPtr value) {
     m_header.addTag(tag);
 
     // Add to the table
-    m_table[tag.id] = value;
+    string_table[tag.id] = value;
 }
 
 void CellTable::SubsetROI(const std::vector<Polygon> &polygons) {
