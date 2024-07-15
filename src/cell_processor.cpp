@@ -1069,6 +1069,8 @@ int ROIProcessor::ProcessLine(Cell& cell) {
 
   // Loop the table and check if the cell is in the ROI
   bool print_line = true; //m_blacklist_remove;
+  
+  // std::string labels; // if a cell has multiple labels 
 
   // Loop through all polygons and check if the point is inside any of them
   for (const auto &polygon : m_rois) {
@@ -1135,10 +1137,23 @@ int ROIProcessor::ProcessLine(Cell& cell) {
 	SET_FLAG(cell.cflag, PERINEURAL_INVASION);
       } else if (roikey(polygon, "SV") || roikey(polygon, "eminal")) {
 	SET_FLAG(cell.cflag, SEMINAL_VESICLES);
-      }
+      } 
+		    
       // uncomment below if want to prevent over-writing existing
       // break;
+            
+      
+      cell.label = polygon.Text;
+         
     }
+    Tag roitag(Tag::CA_TAG, "roi","");
+    AddColumn(roitag,cell.label);
+          
+    //if (!labels.empty()) {
+       // labels += ","; // Add a comma before appending the next label
+                }
+        //labels += polygon.Text; // Append the label    
+        
   }
   
   if (print_line)
