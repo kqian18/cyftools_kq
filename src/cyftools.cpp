@@ -2343,6 +2343,7 @@ static int roifunc(int argc, char** argv) {
 
   std::string roifile;
   const char* shortopts = "vn:r:m:b";
+  bool label = false;
   bool blacklist = false;
   float micron_per_pixel = 0;
   for (char c; (c = getopt_long(argc, argv, shortopts, longopts, NULL)) != -1;) {
