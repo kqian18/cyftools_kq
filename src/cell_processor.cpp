@@ -3,6 +3,7 @@
 #include "cell_utils.h"
 #include "cell_flag.h"
 #include "cell_selector.h"
+#include "cell_table.h"
 
 #include "cell_row.h"
 
