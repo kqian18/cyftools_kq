@@ -92,7 +92,7 @@ public:
   
   void AddColumn(const Tag& tag, FloatColPtr value);
 
-  void AddColumn(const Tag& tag, StringColPtr value);
+  void AddLabel(const Tag& tag, StringColPtr value);
 
   void DeleteColumn(const std::string& col);
   
