@@ -240,7 +240,7 @@ public:
  private:
 
   std::unordered_map<string, FloatColPtr> m_table;
-  std::unordered_map<std::string, StringColPtr> string_table;
+  std::unordered_map<std::string, StringPtr> string_table;
 
   FloatColPtr m_x_ptr;
   FloatColPtr m_y_ptr;
