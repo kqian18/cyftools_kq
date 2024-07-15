@@ -276,7 +276,7 @@ public:
 
   
   // selected write
-  std::_set<int> m_cells_to_write;
+  std::set<int> m_cells_to_write;
   
   // internal member functions
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
