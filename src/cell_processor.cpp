@@ -1145,11 +1145,11 @@ int ROIProcessor::ProcessLine(Cell& cell) {
       // break;
             
       
-      cell_label = polygon.Text;
+      // cell_label = polygon.Text;
          
     }
-    Tag roitag(Tag::CA_TAG, "roi","");
-    AddLabel(roitag,cell_label);
+    // Tag roitag(Tag::CA_TAG, "roi","");
+    // AddLabel(roitag,cell_label);
           
     
         
