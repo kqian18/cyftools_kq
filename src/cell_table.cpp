@@ -979,7 +979,7 @@ int CellTable::PlotPNG(const std::string& file,
   std::mt19937 gen(rd()); 
   std::uniform_int_distribution<> dis(0,1);
 
-  float micron_per_pixel = 1; //0.325f;
+  float micron_per_pixel = 0.65; //0.325f;
   const float radius_size = 6.0f * scale_factor;
   const float ALPHA_VAL = 0.7f; // alpha for cell circles
   constexpr float TWO_PI = 2.0 * M_PI;
