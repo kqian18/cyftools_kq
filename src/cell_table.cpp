@@ -784,7 +784,8 @@ void CellTable::AddColumn(const Tag& tag,
   m_table[tag.id] = value;
   
 }
-
+// will need to revisit adding string functionality
+/*
 void CellTable::AddLabel(const Tag& tag, const std::string& value) {
     if (value.size() != CellCount()) {
         throw std::runtime_error("Adding column of incorrect size");
@@ -801,6 +802,7 @@ void CellTable::AddLabel(const Tag& tag, const std::string& value) {
     // Add to the table
     string_table[tag.id] = value;
 }
+*/
 
 void CellTable::SubsetROI(const std::vector<Polygon> &polygons) {
 
