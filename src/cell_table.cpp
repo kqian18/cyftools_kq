@@ -1055,7 +1055,7 @@ int CellTable::PlotPNG(const std::string& file,
     if (j % 10000 == 0) { 
       cairo_set_source_rgb(crp, 1, 0, 0);
       cairo_set_line_width(crp, 16);
-      cairo_arc(crp, x*scale_factor, y*scale_factor, 50.0f/0.325f*scale_factor, 0, 2*M_PI);
+      cairo_arc(crp, x*scale_factor, y*scale_factor, 50.0f/0.65f*scale_factor, 0, 2*M_PI);
       cairo_stroke(crp);
     }
   }
