@@ -1517,7 +1517,7 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	    end_index = ind; // this is the last index seen
 	}
 
-	// this is a marker, add the tag
+	// add the tag for marker or meta
 	else {
 	  // clean out the ARgo etc
 	  std::string s2 = clean_marker_string(s);
@@ -1528,24 +1528,21 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	      if (start_index == 0) {
 	        start_index = ind;
 	      }
+	      end_index = ind;	  
 	  }
-	  end_index = ind;
-	}
-	// this is a meta, add the tag
-	else {
-
-	  // clean out the ARgo etc
-	  std::string s2 = clean_marker_string(s);
 	  
-	  Tag tag(Tag::CA_TAG, s2, "");
-	  m_header.addTag(tag);
-	  // if first meta we've seen, then set start
-	  if (meta_start == 0) {
-	    meta_start = ind;
-	  }
-	  meta_end = ind;
+	  else {
+	  // this is a meta, add the tag
+	  	Tag tag(Tag::CA_TAG, s2, "");
+	  	m_header.addTag(tag);
+	  	// if first meta we've seen, then set start
+	  	if (meta_start == 0) {
+	   	  meta_start = ind;
+	 	 }
+	  	meta_end = ind;
+		}
 	}
-
+	
 	// just a sanity check here
 	if (ind == 0 && s != "CellID") {
 	  std::cerr << "Error: cyftools convert -- saw header in csv as starting with C but its not CellID, double check?" << std::endl;
