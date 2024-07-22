@@ -1527,8 +1527,7 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	      // if first marker we've seen, then set start
 	      if (start_index == 0) {
 	        start_index = ind;
-	      }
-	      end_index = ind;	  
+	      }	  
 	  }
 	  
 	  else if (meta_start >= 0)
