@@ -1518,16 +1518,16 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	}
 
 	// this is a marker, add the tag
-	else if {
-
+	else {
 	  // clean out the ARgo etc
 	  std::string s2 = clean_marker_string(s);
-	  
-	  Tag tag(Tag::MA_TAG, s2, "");
-	  m_header.addTag(tag);
-	  // if first marker we've seen, then set start
-	  if (start_index == 0) {
-	    start_index = ind;
+	  if (end_index == 0) {
+	      Tag tag(Tag::MA_TAG, s2, "");
+	      m_header.addTag(tag);
+	      // if first marker we've seen, then set start
+	      if (start_index == 0) {
+	        start_index = ind;
+	      }
 	  }
 	  end_index = ind;
 	}
