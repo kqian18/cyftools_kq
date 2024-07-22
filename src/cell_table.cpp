@@ -1529,9 +1529,8 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	        start_index = ind;
 	      }	  
 	  }
-	  
-	  else if (meta_start >= 0)
-	  {
+	  // need to modify indexing if there are additional metas in the future
+	  else if (s == "tTopic") {
 	  // this is a meta, add the tag
 	  	Tag tag(Tag::CA_TAG, s2, "");
 	  	m_header.addTag(tag);
@@ -1540,7 +1539,7 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	   	  meta_start = ind;
 	 	 }
 	  	meta_end = ind;
-		}
+	    }
 	}
 	
 	// just a sanity check here
