@@ -1518,7 +1518,7 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	}
 
 	// this is a marker, add the tag
-	else {
+	else if {
 
 	  // clean out the ARgo etc
 	  std::string s2 = clean_marker_string(s);
