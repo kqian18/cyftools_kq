@@ -1521,7 +1521,7 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	else {
 	  // clean out the ARgo etc
 	  std::string s2 = clean_marker_string(s);
-	  if (end_index == 0) {
+	  if (start_index >= 0) {
 	      Tag tag(Tag::MA_TAG, s2, "");
 	      m_header.addTag(tag);
 	      // if first marker we've seen, then set start
