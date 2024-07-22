@@ -1439,7 +1439,11 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
   // assume starts at 2 and ends and end of file
   int start_index = 0; // start and end indicies for markers
   int end_index = 0;
-  
+
+  // start and end indices for metas
+  int meta_start = 0;
+  int meta_end = 0;
+	
   // csv reader
   std::unique_ptr<io::LineReader> reader;
 
@@ -1525,6 +1529,21 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	  if (start_index == 0) {
 	    start_index = ind;
 	  }
+	  end_index = ind;
+	}
+	// this is a meta, add the tag
+	else {
+
+	  // clean out the ARgo etc
+	  std::string s2 = clean_marker_string(s);
+	  
+	  Tag tag(Tag::CA_TAG, s2, "");
+	  m_header.addTag(tag);
+	  // if first meta we've seen, then set start
+	  if (meta_start == 0) {
+	    meta_start = ind;
+	  }
+	  meta_end = ind;
 	}
 
 	// just a sanity check here
@@ -1537,6 +1556,12 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	} 
 	ind++;
       }
+      	if (start_index > 0 && end_index == 0) {
+        end_index = ind; // set to last index seen if end_index was not set
+	}
+	if (meta_start == 0 && end_index > 0) {
+        meta_start = end_index + 1; // set meta_start to the index after the last marker
+	}
 
       // we know X_centroid isn't at 0 slow, because we got into here with 'C' as first letter
       // so what happened is that it never found X_centroid
