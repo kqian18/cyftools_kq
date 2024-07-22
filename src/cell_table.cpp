@@ -1531,7 +1531,8 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	      end_index = ind;	  
 	  }
 	  
-	  else {
+	  else if (meta_index >= 0)
+	  {
 	  // this is a meta, add the tag
 	  	Tag tag(Tag::CA_TAG, s2, "");
 	  	m_header.addTag(tag);
