@@ -1521,24 +1521,25 @@ void CellTable::StreamTableCSV(CerealProcessor& proc, const std::string& file) {
 	else {
 	  // clean out the ARgo etc
 	  std::string s2 = clean_marker_string(s);
-	  if (start_index >= 0) {
-	      Tag tag(Tag::MA_TAG, s2, "");
+	// topic annotation is a meta	
+	  if (s == "tTopic") {
+	      Tag tag(Tag::CA_TAG, s2, "");
 	      m_header.addTag(tag);
-	      // if first marker we've seen, then set start
-	      if (start_index == 0) {
-	        start_index = ind;
+	      // if first meta we've seen, then set start
+	      if (meta_start == 0) {
+	        meta_end = ind;
 	      }	  
 	  }
 	  // need to modify indexing if there are additional metas in the future
-	  else if (s == "tTopic") {
-	  // this is a meta, add the tag
-	  	Tag tag(Tag::CA_TAG, s2, "");
+	  else  {
+	  // this is a marker, add the tag
+	  	Tag tag(Tag::MA_TAG, s2, "");
 	  	m_header.addTag(tag);
 	  	// if first meta we've seen, then set start
-	  	if (meta_start == 0) {
-	   	  meta_start = ind;
+	  	if (start_index == 0) {
+	   	  start_index = ind;
 	 	 }
-	  	meta_end = ind;
+	  	end_index = ind;
 	    }
 	}
 	
